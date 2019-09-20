@@ -20,82 +20,77 @@
 /* ALL 헤더 */
 .header{
   background: yellow;
-  height: 10vh;
 }
 
 /* ALL 내비게이션 */
 .navigation{
   background: pink;
-  height: 10vh;
 }
 
 /* ALL 메인 콘텐츠 */
 .main-content{
   background: skyblue;
-  height: 50vh;
 }
 
 /* ALL 광고 */
 .ad{
   background: orange;
-  height: 20vh;
 }
 
 /* ALL 푸터 */
 .footer{
   background: lime;
-  height: 10vh;
 }
 
 /* 모바일 스타일 */
-@media screen and (max-width: 799px){
+.header{
+  flex-basis: 100%;
+  height: 50px;
+}
 
-  /* 컨테이너 */
+.navigation{
+  flex-basis: 100%;
+  height: 50px;
+}
 
-  /* mobile 헤더 */
-  .header{
-    flex: 1 1 100%;
-    order: -1;
-  }
+.main-content{
+  flex-basis: 100%;
+  height: calc(100vh - 200px);
+}
 
-  /* mobile 내비게이션 */
-  .navigation{
-    flex: 1 1 100%;
-    order: -1;
-  }
-  /* mobile 메인 콘텐츠 */
-  .main-content{
-    height: 50vh;
-    flex: 1 1 100%
-  }
+.ad{    
+  flex-basis: 100%;
+  height: 50px;
+}
 
-  /* mobile 광고 */
-  .ad{
-    flex: 1 1 100%;
-    order: -1;
-  }
-
-  /* mobile 푸터 */
-  .footer{
-    flex: 1 1 100%;
-    height: 10vh;
-  }
+.footer{    
+  flex-basis: 100%;
+  height: 50px;
 }
 
 /* 태블릿 스타일 */
-
 @media screen and (min-width: 50em){
   /* 컨테이너 */
-  .container{
 
+  /* 태블릿 헤더 */
+  .header{
+    flex-basis: 70%;
   }
-  /* 메인 콘텐츠 */
+
+  /* 태블릿 내비게이션 */
+  .navigation{
+    flex-basis: 30%;
+  }
+
+  /* 태블릿 메인 콘텐츠 */
   .main-content{
+    flex-basis: 100%;
+    height: calc(100vh - 150px);
+  }
 
-  } 
-  /* 광고 */
-  .ad{
-
+  /* 태블릿 레이아웃 순서 */
+  .header, .navigation, .ad{
+    order: -1;
   }
 }
 
@@ -103,31 +98,67 @@
 
 @media screen and (min-width: 64em){
   /* 컨테이너 */
-  .container{
 
+  /* 랩탑 헤더 */
+  .header{
+    flex-basis: 100%;
   }
-  /* 메인 콘텐츠 */
+
+  /* 랩탑 내비게이션 */
+  .navigation{
+    flex-basis: 100%;
+  }
+
+  /* 랩탑 메인 콘텐츠 */
   .main-content{
-
+    flex-basis: 70%;
   } 
-  /* 광고 */
-  .ad{
 
+  /* 랩탑 광고 */
+  .ad{
+    flex-basis: 30%;
+    height: calc(100vh - 150px);
+  }
+
+  /* 랩탑 레이아웃 순서 */
+  .navigation{
+    order: -2;
   }
 }
 
 /* 와이드 스크린 스타일 */
-@media screen and (min-width: 10ㄴ0em){
+@media screen and (min-width: 100em){
   /* 컨테이너 */
-  .container{
 
+  /* 헤더 영역 */
+  .header{
+    flex-basis: 100%;
   }
+
+  /* 내비게이션 */
+  .navigation{
+    flex-basis: 30%;
+  }
+
   /* 메인 콘텐츠 */
   .main-content{
-
+    flex-basis: 50%;
   } 
   /* 광고 */
   .ad{
-
+    flex-basis: 20%;
   }
-}ㄴ
+
+  /* 와이드 레이아웃 순서*/
+  .navigation, .ad{
+    order: 0;
+  }
+
+  .header{
+    order: -1
+  }
+
+  .navigation, .main-content, .ad{
+    height: calc(100vh - 100px);
+  }
+}
