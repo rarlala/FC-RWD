@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+/* 반응형 이미지 */
+.container{
+  display: flex;
+  flex-flow: wrap row;
+}
+
+.rwd-container{
+  border: 10px solid #aaa;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  flex-basis: 50%;
+}
+
+.rwd-img{
+  max-width: 100%;
+  height: auto;
+}
