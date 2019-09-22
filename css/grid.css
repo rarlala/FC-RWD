@@ -7,6 +7,7 @@
 .container{
   border: 10px solid teal;
   display: grid;
+
   /* grid-template-columns: 100px 100px 100px; */
   /* grid-template-columns: repeat(4, 100px 50px); */
   grid-template-columns: repeat(4, 2fr);
@@ -14,11 +15,11 @@
   grid-template-rows: repeat(2, minmax(50px, auto));
   grid-template-areas: "item1 item1 . item5"
                        "item2 item3 item4 item5";
-}
 
-[class^="item"]{
-  background: #ffc;
-  border: 1px solid blue;
+  [class^="item"]{
+   background: #ffc;
+    border: 1px solid blue;
+  }
 }
 
 .item1{
