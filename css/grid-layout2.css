@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+.container{
+  background: silver;
+  margin: 0 auto;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(12, 65px);
+  grid-auto-rows: minmax(100px, auto);
+  grid-column-gap: 20px;
+}
+
+.navigation, .content, .ad{
+  height: calc(100vh - 200px);
+}
+
+.header{
+  background: yellow;
+}
+
+.navigation{
+  background: pink;
+}
+
+.content{
+  background:skyblue;
+}
+
+.ad{
+  background:lime;
+}
+
+.footer{
+  background: orange;
+}
+
+/* 레이아웃*/
+
+.header{
+  /* grid-column: 1/11; */
+  grid-column: 1 /span 10;
+}
+
+.navigation{
+  /* grid-column: 1/3; */
+  grid-column: 1/ span 2;
+  grid-row: 2;
+}
+
+.content{
+  /* grid-column: 3/11; */
+  grid-column: 3/ span 8;
+  grid-row: 2;
+}
+
+.ad{
+  /* grid-column: 11/13; */
+  grid-column: span 2 /-1 ;
+  grid-row:2;
+}
+
+.footer{
+  /* grid-column: 3/11; */
+  grid-column: 3/ span 8;
+}
