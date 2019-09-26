@@ -1,12 +1,27 @@
 @charset "utf-8";
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(./fonts.css);
+
+:root{
+  --point1: #abd375;
+  --point2: #e8ca58;
+  --point3: #c7b39a;
+  --point4: #eea60a;
+  --point5: #6aaee6;
+}
+
 *, *::before, *::after { 
   font-family: 'Spoqa Han Sans', 'Sans-serif'; 
   box-sizing: border-box;
 }
 
+*:focus { outline:none;}
+
 /* Reset CSS */
+ul,ol{
+  list-style: none;
+  padding-left: 0;
+}
 fieldset{
   margin: 0;
   padding: 0;
@@ -31,35 +46,24 @@ a{
   display: flex;
   flex-direction: row;
   flex-wrap:wrap;
+  justify-content: space-evenly;
 }
 
 .flex-col{
   display: flex;
   flex-direction: column;
   flex-wrap:wrap;
+  justify-content: space-evenly;
+}
+
+/* responsive content */
+
+.responsive{
+  max-width: 100%;
+  height: auto;
 }
 
 /* All Device */
-.container{
-  background: silver;
-}
-
-.header{
-  background: yellow;
-}
-
-.main{
-  background: skyblue;
-}
-
-.navigation{
-  background: pink;
-}
-
-.book{
-background: lime;
-}
-
 .news{
 background: goldenrod;
 }
@@ -78,5 +82,394 @@ background: goldenrod;
 
 .footer{
   background: orange;
+  height: 10vh;
 }
 
+.search{
+  text-align: right;
+}
+
+[type="search"]{
+  border: 1px solid #aaa;
+  border-radius: 0.35em;
+  height: 2em;
+  margin-right: 0.5em;
+}
+
+/* All main Content */
+.sprite{
+  background: url('./images/sprite_main.png') no-repeat;
+  height: 60px;
+  padding-left: 65px;
+}
+
+.main [class*="heading"]{
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.news-heading{
+  background-position: 0 -230px;
+}
+.board-heading {
+  background-position: 0 -115px;
+}
+.favorite-heading {
+  background-position: 0 -345px;
+}
+.twitter-heading {
+  background-position: 0 -460px;
+}
+
+.book-heading .point{
+  color: var(--point1);
+}
+.news-heading .point {
+  color: var(--point2);
+}
+.board-heading .point {
+  color: var(--point3);
+}
+.favorite-heading .point {
+  color: var(--point4);
+}
+.twitter-heading .point {
+  color: var(--point5);
+}
+
+/* recommend book */
+.book-cover{
+  text-align: center;
+}
+
+.book-detail{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.book-author-name{
+  margin-left: 0.5em;
+}
+
+.book-grade{
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  color: var(--point1);
+}
+
+p[class$="summary"]{
+  line-height: 2em;
+  padding: 0 1em;
+}
+
+/* Mobile Device */
+@media screen and (max-width:62.5em){
+  /* mobile grid */
+  .col-m1{
+    width: 20%;
+  }
+
+  .col-m2{
+    width: 45%;
+  }
+
+  .col-m3{
+    width: 70%;
+  }
+
+  .col-m4{
+    width: 100%;
+  }
+
+  /* mobile layout */
+
+  /* 모바일 header */
+  .header{
+    background: #32302e;
+    padding-bottom: 1em;
+  }
+
+  .logo, .member, .search{
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  /* 모바일 member */
+  .member{
+    order: -1;
+    display: flex;
+    margin:0;
+    justify-content: flex-end;
+    background: #988574;
+    color: #fff;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    /* width: calc(100% + 40px);
+    position: relative;
+    left: -20px; */
+  }
+
+  .member a{
+    padding: 0.35em 0;
+    /* background: blue; */
+    display: block;
+    margin-left: 1em;
+  }
+
+  /* mobile search */
+  [type="search"]{
+    width: calc(100% - 3em);
+  }
+
+  .btn-search{
+    border: 0 none;
+    padding: 0;
+    width: 2em;
+    height: 2em;
+    position: relative;
+    background: transparent;
+  }
+
+  .btn-search::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('./images/btn_search.png') no-repeat;
+    background-size: cover;
+  }
+  
+  /* mobile menu */
+  .btn-menubar{
+    width: 2.5em;
+    height: 2.5em;
+    border: 0 none;
+    padding: 0;
+    position: absolute;
+    top: 5em;
+    right:20px;
+    background: transparent;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .menubar{
+    background: #fff;
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    border-radius: 1em;
+    left: 0;
+    transition: all 200ms;
+  }
+  
+  .menubar-top{
+    top:0;
+  }
+
+  .menubar-middle{
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .menubar-bottom{
+    top: 100%;
+    transform: translateY(-100%);
+  }
+  
+  .nav-act .menubar-top{
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .nav-act .menubar-middle{
+    transform: translate(-100%, -50%);
+  }
+
+  .nav-act .menubar-bottom{
+    top:50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  .menu-list{
+    margin: 0.5em 0;
+  }
+  
+  .menu-item{
+    padding: 0.5em;
+    display: block;
+  }
+
+  .menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    overflow: hidden;
+    transform: translateX(-100%);
+    transition: all 200ms;
+  }
+  
+  .nav-act .menu{
+    transform: none;
+    width: 75vw;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    margin:0;
+    padding: 2em; 
+  }
+  
+  .sub-menu{
+    display: none;
+    list-style: disc;
+    padding-left: 2em;
+    margin-bottom: 1em;
+  }
+  
+  .sub-menu li{
+    margin: 0.5em;
+  }
+  
+  .sub-menu a{
+    padding: 0.5em 0;
+    display: block;
+  }
+
+  .menu-act .sub-menu{
+    display: block;
+  }
+}
+
+
+/* Desktop Device */
+
+@media screen and (min-width:62.5em){
+  /* Desktop Grid */
+  
+  .col-d3{
+    width: calc(65px * 3 + 20px * 2);
+  }
+  .col-d4{
+    width: calc(65px * 4 + 20px * 3);
+  }
+  .col-d5{
+    width: calc(65px * 5 + 20px * 4);
+  }
+  .col-d8{
+    width: calc(65px * 8 + 20px * 7);
+  }
+
+  .container{
+    align-items: center;
+  }
+  .header, .main, .menu{
+    width: 1000px;
+  }
+  .navigation, .footer{
+    width: 100%;
+  }
+
+  /* desktop header */
+  .header{
+    display: block;
+    position: relative;
+    padding-bottom: 1.5em;
+  }
+
+  /* desktop logo */
+  .logo{
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* desktop member */
+  .member{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .member a{
+    display: inline-block;
+    /* padding을 추가하기 위한 목적으로 display 추가함 */
+    padding: 0.5em 0;
+  }
+
+  .bar::before{
+    content: "|";
+  }
+
+  .bar{
+    margin: 0 0.5em;
+  }
+
+  /* desktop main menu */
+
+  .navigation{
+    background: #988574;
+    color: #fff;
+    /* border-top: 2px solid #000;
+    border-bottom: 2px solid #000; */
+    box-shadow: 0 -1px 2px 0 #313131, 0 1px 2px 0 #313131;
+  }
+
+  .btn-menubar{
+    display: none;
+  }
+
+  .menu{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .menu-item{
+    font-weight: 700;
+    font-size: 1.2em;
+    padding: 0.35em 0;
+    display: block;
+    margin-bottom: 0.5em;
+    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000,  0 -1px 0 #000;
+  }
+
+  .sub-menu li{
+    margin: 0.5em 0;
+  }
+
+  .sub-menu a{
+    display: block;
+    padding: 0.35em 0;
+  }
+
+  .main{
+    justify-content: space-between;
+  }
+
+  /* desktop search */
+  [type="search"]{
+    width: 40%;
+  }
+
+  .btn-search{
+    border: 1px solid #aaa;
+    border-radius: 0.5em;
+    background: #988674;
+    color: #fff;
+    height: 2em;
+    padding: 0 1em;
+  }
+
+
+}

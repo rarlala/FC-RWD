@@ -6,17 +6,145 @@
   <title>웹카페 - 반응형 웹</title>
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/jquery.min.js" defer></script>
+  <script src="./js/mobile-menu.js" defer></script>
 </head>
 <body>
   <div class="container flex-col">
-    <header class="header">헤더</header>
-    <nav class="navigation">내비게이션</nav>
-    <main class="main">
-      <section class="book">추천서적정보</section>
-      <section class="news">새소식</section>
-      <section class="board">게시판</section>
-      <section class="favorite">인기사이트</section>
-      <article class="twitter">트위터</article>
+    <header class="header flex-row">
+      <h1 class="logo">
+        <a href="#"><img src="images/rwd-logo.png" alt="Web Cafe"/></a>
+      </h1>
+      <ul class="member">
+        <li><a href="#">로그인</a></li>
+        <li><span class="bar"></span><a href="#">회원가입</a></li>
+        <li><span class="bar"></span><a href="#">커뮤니티</a></li>
+      </ul>
+      <form
+        action="javascript:alert('검색이 완료되었습니다.');"
+        class="search"
+      >
+        <fieldset>
+          <legend>검색 폼</legend>
+          <!-- <label for="search" class="a11y-hidden">검색어</label> -->
+          <input
+            aria-label="검색어"
+            type="search"
+            id="search"
+            required
+            placeholder="검색어를 입력하세요"
+          />
+          <button type="submit" class="btn-search">검색</button>
+        </fieldset>
+      </form>
+    </header>
+
+    <nav class="navigation">
+      <h2 class="a11y-hidden">메인 메뉴</h2>
+      <button class="btn-menubar" aria-label="메인메뉴 열기">
+        <span class="menubar menubar-top"></span>
+        <span class="menubar menubar-middle"></span>
+        <span class="menubar menubar-bottom"></span>
+      </button>
+      <ul class="menu">
+        <li class="menu-list">
+          <a href="#" class="menu-item">HTML에 대해</a>
+          <ul class="sub-menu">
+            <li><a href="#">HTML5 소개</a></li>
+            <li><a href="#">레퍼런스 소개</a></li>
+            <li><a href="#">활용 예제</a></li>
+          </ul>
+        </li>
+        <li class="menu-list">
+          <a href="#" class="menu-item">CSS에 대해</a>
+          <ul class="sub-menu">
+            <li><a href="#">CSS 소개</a></li>
+            <li><a href="#">CSS2 VS CSS3</a></li>
+            <li><a href="#">CSS 애니메이션</a></li>
+          </ul>
+        </li>
+        <li class="menu-list">
+          <a href="#" class="menu-item">웹표준/웹접근성</a>
+          <ul class="sub-menu">
+            <li><a href="#">웹표준 이란?</a></li>
+            <li><a href="#">웹접근성의 개요</a></li>
+            <li><a href="#">HTML5의 현재와 미래</a></li>
+          </ul>
+        </li>
+        <li class="menu-list">
+          <a href="#" class="menu-item">묻고 답하기</a>
+          <ul class="sub-menu">
+            <li><a href="#">묻고 답하기</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">1대1 질문</a></li>
+          </ul>
+        </li>
+        <li class="menu-list">
+          <a href="#" class="menu-item">자료실</a>
+          <ul class="sub-menu">
+            <li><a href="#">공개 자료실</a></li>
+            <li><a href="#">이미지 자료실</a></li>
+            <li><a href="#">예제 자료실</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main flex-row">
+      <section class="book col-m4 col-d4">
+        <h2 class="book-heading sprite">
+          <span>추천 서적</span>
+          <span class="point">Recommend Book</span>
+        </h2>
+        <figure class="book-cover">
+          <img
+            src="images/book_rwd.jpg"
+            class="responsive"
+            alt=""
+            aria-labelledby="cover-caption"
+          />
+          <figcaption id="cover-caption" class="book-cover-caption">
+            반응형웹 핵심 가이드북 도서
+          </figcaption>
+        </figure>
+        <dl class="book-detail">
+          <dt class="book-author">저자</dt>
+          <dd class="book-author-name">김데레사</dd>
+          <dt class="a11y-hidden">평점</dt>
+          <dd class="book-grade" aria-label="5점 만점에 4점">
+            <span aria-hidden="true">★★★★☆</span>
+          </dd>
+        </dl>
+        <p class="book-summary">
+          반응형웹 디자인을 위한 핵심 내용을 다루고 있으며 미디어쿼리, 유연한
+          레이아웃, 반응형 이미지 기법을 학습할 수 있다. 모바일 및 다양한
+          해상도에 대응이 가능한 웹디자인을 이 책으로 시작해 보자!
+        </p>
+      </section>
+      <section class="news col-m4 col-d8">
+        <h2 class="news-heading sprite">
+          <span>새소식</span>
+          <span class="point">WebCafe News</span>
+        </h2>
+      </section>
+      <section class="board col-m4 col-d4">
+        <h2 class="board-heading sprite">
+          <span>게시판</span>
+          <span class="point">WebCafe Board</span>
+        </h2>
+      </section>
+      <section class="favorite col-m4 col-d3">
+        <h2 class="favorite-heading sprite">
+          <span>인기 사이트</span>
+          <span class="point">Favorite Site</span>
+        </h2>
+      </section>
+      <article class="twitter col-m4 col-d5">
+        <h2 class="twitter-heading sprite">
+          <span>트위터</span>
+          <span class="point">WebCafe Twitter</span>
+        </h2>
+      </article>
     </main>
     <footer class="footer">푸터</footer>
   </div>
