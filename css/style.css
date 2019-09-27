@@ -100,6 +100,11 @@ a{
 }
 
 /* All main Content */
+
+.main{
+  width: 100%;
+}
+
 .sprite{
   background: url('./images/sprite_main.png') no-repeat;
   height: 60px;
@@ -175,6 +180,10 @@ p[class$="summary"]{
   position: relative;
 }
 
+.board-list{
+  margin-left: 1em;
+}
+
 .board-list li{
   display: flex;
   margin: 0.5em 0;
@@ -199,6 +208,7 @@ p[class$="summary"]{
 /* All favorite */
 .favorite-list{
   counter-reset: initial;
+  margin-left: 1em;
 }
 
 .favorite-list li{
@@ -444,6 +454,11 @@ p[class$="summary"]{
     display: block;
   }
 
+  /*  mobile main */
+  .main{
+    padding: 0 20px;
+  }
+
   /* mobile footer */
 
   .footer{
@@ -470,23 +485,24 @@ p[class$="summary"]{
   /* Desktop Grid */
   
   .col-d3{
-    width: calc(65px * 3 + 20px * 2);
+    width: 23.8%;
   }
   .col-d4{
-    width: calc(65px * 4 + 20px * 3);
+    width: 32.267%;
   }
   .col-d5{
-    width: calc(65px * 5 + 20px * 4);
+    width: 40.733%;
   }
   .col-d8{
-    width: calc(65px * 8 + 20px * 7);
+    width: 66.133%;
   }
 
   .container{
     align-items: center;
   }
   .header, .main, .menu{
-    width: 1000px;
+    width: 80%;
+    max-width: 1200px;
   }
   .navigation, .footer{
     width: 100%;
